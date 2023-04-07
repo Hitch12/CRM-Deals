@@ -1,0 +1,187 @@
+
+<div class="container-fluid vh-100 py-4 bg-light" *ngIf="contacts.length">
+  <div class="header text-center mb-3">
+    <h1 class="">Deals</h1>
+  </div>
+  <div cdkDropListGroup class="row gx-3">
+
+    <div class="col-10 offset-1 text-center mb-3">
+      <span class="p-input-icon-left ">
+        <i class="pi pi-search"></i>
+        <input type="text" class="w-25 form-control mx-auto" placeholder="search..."  pInputText [(ngModel)]="temp"/>
+      </span>
+    </div>
+
+    <div class="col-md-2 offset-1">
+      <div class="example-container">
+        <div class="mb-3 mt-2 px-3">
+          <h4 class="m-0" >Potential Value</h4>
+        </div>
+
+
+        <div
+        cdkDropList
+        [cdkDropListData]="potentialValue"
+        class="example-list"
+        (cdkDropListDropped)="drop($event,'Potential Value')">
+          <div class="example-box border-bottom border-3 border-primary" *ngFor="let Contact of potentialValue |search:temp:'Potential Value' " cdkDrag  >
+            <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+            <div class="fs-7 fw-bold">{{Contact.first_name}} {{Contact.last_name}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-envelope text-primary fa-fw"></i> {{Contact.email}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-phone text-primary fa-fw"></i> {{Contact.phone}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-building text-primary fa-fw"></i> {{Contact.company}}</div>
+            <div class="fs-8 text-muted d-flex justify-content-between align-items-center">
+              <span><i class="fa-solid fa-calendar text-primary fa-fw"></i> {{Contact.date}}</span>
+              <span>
+                <span class=" px-2 me-1 py-1 text-white rounded-5"
+                [ngClass]="{
+                  'bg-warning':Contact.state == 'New',
+                  'bg-secondary':Contact.state != 'New'}">{{Contact.state}}</span>
+                <span class="bg-primary px-2 py-1 text-white rounded-5">{{Contact.probability_status}}</span>
+              </span>
+            </div>
+            <mat-progress-bar class="mt-2 rounded-5" mode="determinate" color="black" [value]="Contact.probability_status.replace('%','')"></mat-progress-bar>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="example-container">
+        <div class="mb-3 mt-2 px-3">
+          <h4>Focus</h4>
+        </div>
+
+        <div
+        cdkDropList
+        [cdkDropListData]="focus"
+        class="example-list"
+        (cdkDropListDropped)="drop($event,'Focus')">
+          <div class="example-box border-bottom border-3 border-primary" *ngFor="let Contact of focus |search:temp:'Focus'" cdkDrag>
+            <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+            <div class="fs-7 fw-bold">{{Contact.first_name}} {{Contact.last_name}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-envelope text-primary fa-fw"></i> {{Contact.email}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-phone text-primary fa-fw"></i> {{Contact.phone}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-building text-primary fa-fw"></i> {{Contact.company}}</div>
+            <div class="fs-8 text-muted d-flex justify-content-between align-items-center">
+              <span><i class="fa-solid fa-calendar text-primary fa-fw"></i> {{Contact.date}}</span>
+              <span>
+                <span class=" px-2 me-1 py-1 text-white rounded-5"
+                [ngClass]="{
+                  'bg-warning':Contact.state == 'New',
+                  'bg-secondary':Contact.state != 'New'}">{{Contact.state}}</span>
+                <span class="bg-primary px-2 py-1 text-white rounded-5">{{Contact.probability_status}}</span>
+              </span>
+            </div>
+            <mat-progress-bar class="mt-2 rounded-5" mode="determinate" color="black" [value]="Contact.probability_status.replace('%','')"></mat-progress-bar>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="example-container">
+        <div class="mb-3 mt-2 px-3">
+          <h4>Contact Made</h4>
+        </div>
+
+        <div
+        cdkDropList
+        [cdkDropListData]="contactMade"
+        class="example-list"
+        (cdkDropListDropped)="drop($event,'Contact Made')">
+          <div class="example-box border-bottom border-3 border-primary" *ngFor="let Contact of contactMade |search:temp:'Contact Made'" cdkDrag>
+            <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+            <div class="fs-7 fw-bold">{{Contact.first_name}} {{Contact.last_name}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-envelope text-primary fa-fw"></i> {{Contact.email}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-phone text-primary fa-fw"></i> {{Contact.phone}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-building text-primary fa-fw"></i> {{Contact.company}}</div>
+            <div class="fs-8 text-muted d-flex justify-content-between align-items-center">
+              <span><i class="fa-solid fa-calendar text-primary fa-fw"></i> {{Contact.date}}</span>
+              <span>
+                <span class=" px-2 me-1 py-1 text-white rounded-5"
+                [ngClass]="{
+                  'bg-warning':Contact.state == 'New',
+                  'bg-secondary':Contact.state != 'New'}">{{Contact.state}}</span>
+                <span class="bg-primary px-2 py-1 text-white rounded-5">{{Contact.probability_status}}</span>
+              </span>
+            </div>
+            <mat-progress-bar class="mt-2 rounded-5" mode="determinate" color="black" [value]="Contact.probability_status.replace('%','')"></mat-progress-bar>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="example-container">
+        <div class="mb-3 mt-2 px-3">
+          <h4>Offer Sent</h4>
+        </div>
+
+        <div
+        cdkDropList
+        [cdkDropListData]="offerSent"
+        class="example-list"
+        (cdkDropListDropped)="drop($event,'Offer Sent')">
+          <div class="example-box border-bottom border-3 border-primary" *ngFor="let Contact of offerSent |search:temp:'Offer Sent'" cdkDrag>
+            <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+            <div class="fs-7 fw-bold">{{Contact.first_name}} {{Contact.last_name}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-envelope text-primary fa-fw"></i> {{Contact.email}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-phone text-primary fa-fw"></i> {{Contact.phone}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-building text-primary fa-fw"></i> {{Contact.company}}</div>
+            <div class="fs-8 text-muted d-flex justify-content-between align-items-center">
+              <span><i class="fa-solid fa-calendar text-primary fa-fw"></i> {{Contact.date}}</span>
+              <span>
+                <span class=" px-2 me-1 py-1 text-white rounded-5"
+                [ngClass]="{
+                  'bg-warning':Contact.state == 'New',
+                  'bg-secondary':Contact.state != 'New'}">{{Contact.state}}</span>
+                <span class="bg-primary px-2 py-1 text-white rounded-5">{{Contact.probability_status}}</span>
+              </span>
+            </div>
+            <mat-progress-bar class="mt-2 rounded-5" mode="determinate" color="black" [value]="Contact.probability_status.replace('%','')"></mat-progress-bar>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <div class="example-container">
+        <div class="mb-3 mt-2 px-3">
+          <h4>Getting Ready</h4>
+        </div>
+
+        <div
+        cdkDropList
+        [cdkDropListData]="gettingReady"
+        class="example-list"
+        (cdkDropListDropped)="drop($event,'Getting Ready')">
+          <div class="example-box border-bottom border-3 border-primary" *ngFor="let Contact of gettingReady |search:temp:'Getting Ready'" cdkDrag>
+            <div class="example-custom-placeholder" *cdkDragPlaceholder></div>
+            <div class="fs-7 fw-bold">{{Contact.first_name}} {{Contact.last_name}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-envelope text-primary fa-fw"></i> {{Contact.email}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-phone text-primary fa-fw"></i> {{Contact.phone}}</div>
+            <div class="fs-8 text-muted"><i class="fa-solid fa-building text-primary fa-fw"></i> {{Contact.company}}</div>
+            <div class="fs-8 text-muted d-flex justify-content-between align-items-center">
+              <span><i class="fa-solid fa-calendar text-primary fa-fw"></i> {{Contact.date}}</span>
+              <span>
+                <span class=" px-2 me-1 py-1 text-white rounded-5"
+                [ngClass]="{
+                  'bg-warning':Contact.state == 'New',
+                  'bg-secondary':Contact.state != 'New'}">{{Contact.state}}</span>
+                <span class="bg-primary px-2 py-1 text-white rounded-5">{{Contact.probability_status}}</span>
+              </span>
+            </div>
+            <mat-progress-bar class="mt-2 rounded-5" mode="determinate" color="black" [value]="Contact.probability_status.replace('%','')"></mat-progress-bar>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+<app-loading *ngIf="!contacts.length"></app-loading>
