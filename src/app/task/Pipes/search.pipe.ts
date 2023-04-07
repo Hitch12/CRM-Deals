@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Contact } from './contact';
+import { Contact } from '../Interfaces/contact';
 
 @Pipe({
   name: 'search',

@@ -9,7 +9,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SearchPipe } from './task/search.pipe';
+import { SearchPipe } from './task/Pipes/search.pipe';
 import { LoadingComponent } from './loading/loading.component';
 
 
