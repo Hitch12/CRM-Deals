@@ -1,3 +1,3 @@
 
 Demo :)
-https://hitch12.github.io/CRM-Deals-Production/#/task
+https://crm-deals-1.vercel.app/#/task
